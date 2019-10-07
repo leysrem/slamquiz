@@ -1,8 +1,20 @@
-<h1>ad arr khey</h1>
+{% extends 'base.html.twig' %}
+    {% block title %}
+        Get Started !
+    {% endblock %}
 
-<ul>
+    {% block body %}
+    
 
-{% for user in users_list %}
-    <li>{{ user['first_name']}}</li>
-{% endfor %}
-</ul>
+    <ul>
+
+    {% for user in users_list %}
+        <li>{{ user['first_name']}} {{user['last_name']}}</li>
+    {% endfor %}
+    </ul>
+
+    {{ 'Prenom' ~ 'Nom' }}
+
+    {{ 1+2 }}
+
+{% endblock %}
