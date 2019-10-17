@@ -8,16 +8,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends AbstractController
 {
     /**
-     * @Route("/")
+     * @Route("/",name="default")
      */
 
     public function index()
     {
-
-    /**
-     * @Route("/",name="default")
-     */
-
         return $this->render('default/index.html.twig', [
             'controller_name' => 'DefaultController',
         ]);
@@ -27,6 +22,7 @@ class DefaultController extends AbstractController
     /**
      * @Route("/user",name="default_user")
      */
+    
     public function user() {
 
         $first_name = "LEYS";

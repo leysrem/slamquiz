@@ -9,13 +9,9 @@
 </style>
 
 <div class="example-wrapper">
+
     <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <a href={{ url('user_index')}}>Liste des utilisateurs</a>
-    </ul>
-
-    <button class='btn btn-primary'>Se connecter</button>
+    <a href="/login"><button class='btn btn-primary'>Se connecter</button></a>
 </div>
 {% endblock %}
