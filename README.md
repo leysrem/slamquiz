@@ -13,4 +13,4 @@ When downlaod is complete, open your CMD copy this line
 # Done
 If you've done it right, you should get this index page :
 
-![test](assets\screenshot_home.jpg)
+![test](https://raw.githubusercontent.com/hochdyl/slamquiz/master/assets/screenshot_home.jpg)
