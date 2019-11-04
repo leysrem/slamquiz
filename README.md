@@ -17,6 +17,6 @@ composer install
 ```
 
 
-# CONNEXION
+# Sign in
 If you've done it right, you should get this index page :
 ![test](https://raw.githubusercontent.com/hochdyl/slamquiz/master/assets/screenshot_home.jpg)
