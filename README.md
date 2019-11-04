@@ -20,6 +20,11 @@ If you've done it right, you should get this index page :
 
 ![index](https://raw.githubusercontent.com/hochdyl/slamquiz/master/assets/screenshot_home.jpg)
 
+# Create database
+
+Before using the software, you need to create a database nammed "slamquiz".
+Then, you need to se
+
 # Load database
 There are some default user that you can load into a database. Open your CMD and copy this line :
 ```
