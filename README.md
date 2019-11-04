@@ -34,10 +34,10 @@ Next, you will have to connect with the user account. It is setup by default but
 
 First, click on "Sign in"
 
-![sign in](https://raw.githubusercontent.com/hochdyl/slamquiz/master/assets/screenshot_home.jpg)
+![sign in](https://raw.githubusercontent.com/hochdyl/slamquiz/master/assets/sign.png)
 
 Then type the following id to connect as a user :
 * Id : user@gmail.com
 * Password : user
 
-![sign in](https://raw.githubusercontent.com/hochdyl/slamquiz/master/assets/screenshot_home.jpg)
+![sign in](https://raw.githubusercontent.com/hochdyl/slamquiz/master/assets/user.png)
