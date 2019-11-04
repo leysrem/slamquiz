@@ -23,6 +23,9 @@ If you've done it right, you should get this index page :
 # Load database
 There are some default user that you can load into a database. Open your CMD and copy this line :
 ```
+php bin/console doctrine:migrations:migrate
+```
+```
 php bin/console doctrine:fixtures:load
 ```
 
