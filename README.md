@@ -29,7 +29,9 @@ Then configure your database with .env file
 DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name
 ```
 Replace db_user with : **root**
+
 Replace db_password with : (let it blank)
+
 Replace db_name with : **slamquiz**
 
 
