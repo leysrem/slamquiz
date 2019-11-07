@@ -17,6 +17,7 @@ composer install
 ```
 (Composer is free to download at this link : https://getcomposer.org/download/)
 
+
 If you've done it right, you should get this index page :
 
 ![index](https://raw.githubusercontent.com/hochdyl/slamquiz/master/assets/screenshot_home.jpg)
