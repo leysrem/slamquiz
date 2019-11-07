@@ -15,15 +15,30 @@ cd slamquiz
 ```
 composer install
 ```
+(Composer is free to download at this link : https://getcomposer.org/download/)
 
 If you've done it right, you should get this index page :
 
 ![index](https://raw.githubusercontent.com/hochdyl/slamquiz/master/assets/screenshot_home.jpg)
 
 # Create database
+Start a DBMS like Wamp server (free to download at this link : http://www.wampserver.com/)
 
-Before using the software, you need to create a database nammed "slamquiz".
+Then configure your database with .env file
+```
+DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name
+```
+Replace db_user with : **root**
+Replace db_password with : (let it blank)
+Replace db_name with : **slamquiz**
+
+
+Go in the slamquiz directory with cmd and execute this line
+```
+php bin/console doctrine:database:create
+```
 Then, you need to se
+
 
 # Load database
 There are some default user that you can load into a database. Open your CMD and copy this line :
