@@ -72,3 +72,10 @@ There are 2 others account configure by default :
 
 * Password : superadmin
 
+# Run
+Once you've installed everything, execute this line in the slamquiz directory :
+```
+php bin/console server:run
+```
+
+
