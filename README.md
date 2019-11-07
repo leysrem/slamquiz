@@ -49,6 +49,12 @@ php bin/console doctrine:migrations:migrate
 php bin/console doctrine:fixtures:load
 ```
 
+# Run
+Once you've installed everything, execute this line in the slamquiz directory :
+```
+php bin/console server:run
+```
+
 # Sign in
 Next, you will have to connect with the user account. It is setup by default but you can remove it if wanted.
 
@@ -71,11 +77,3 @@ There are 2 others account configure by default :
 * Id : superadmin@gmail.com
 
 * Password : superadmin
-
-# Run
-Once you've installed everything, execute this line in the slamquiz directory :
-```
-php bin/console server:run
-```
-
-
