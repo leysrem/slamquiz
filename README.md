@@ -17,7 +17,6 @@ composer install
 ```
 (Composer is free to download at this link : https://getcomposer.org/download/)
 
-
 If you've done it right, you should get this index page :
 
 ![index](https://raw.githubusercontent.com/hochdyl/slamquiz/master/assets/screenshot_home.jpg)
@@ -35,12 +34,10 @@ Replace db_password with : (let it blank)
 
 Replace db_name with : **slamquiz**
 
-
-Go in the slamquiz directory with cmd and execute this line
+Finalyn go in the slamquiz directory with cmd and execute this line
 ```
 php bin/console doctrine:database:create
 ```
-Then, you need to se
 
 
 # Load database
@@ -61,6 +58,17 @@ First, click on "Sign in"
 
 Then type the following id to connect as a user :
 * Id : user@gmail.com
+
 * Password : user
 
 ![sign in](https://raw.githubusercontent.com/hochdyl/slamquiz/master/assets/user.png)
+
+There are 2 others account configure by default :
+* Id : admin@gmail.com
+
+* Password : admin
+
+* Id : superadmin@gmail.com
+
+* Password : superadmin
+
