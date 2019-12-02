@@ -1,3 +1,15 @@
 language: php
+
 php:
- - 7.3.5
+  - 7.3.5
+
+install:
+
+before_script: 
+  - composer install
+  - php bin/console doctrine:migrations:diff
+  - php bin/console doctrine:migrations:migrate
+  - php bin/console doctrine:fixtures:load
+
+  env:
+    - DATABASE_URL=pgsql://slamquiz:root@127.0.0.1:5432/slamquiz
