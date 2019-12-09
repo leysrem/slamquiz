@@ -1,4 +1,4 @@
-![sign in](https://api.travis-ci.org/hochdyl/slamquiz.svg?branch=master)
+![build](https://api.travis-ci.org/hochdyl/slamquiz.svg?branch=master)
 
 SLAMQUIZ
 =========
