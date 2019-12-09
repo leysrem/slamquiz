@@ -21,8 +21,8 @@
                 <td>{{ answer.text }}</td>
                 <td>{{ answer.correct }}</td>
                 <td>
-                    <a href="{{ path('answer_show', {'id': answer.id}) }}">show</a>
-                    <a href="{{ path('answer_edit', {'id': answer.id}) }}">edit</a>
+                    <a class="btn btn-primary" href="{{ path('answer_show', {'id': answer.id}) }}">show</a>
+                    <a class="btn btn-primary" href="{{ path('answer_edit', {'id': answer.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +33,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('answer_new') }}">Create new</a>
+    <a class="btn btn-primary" href="{{ path('answer_new') }}">Create new</a>
 {% endblock %}
