@@ -18,19 +18,21 @@ class QuestionType extends AbstractType
             ->add('text')
             // ->add('created_at')
             // ->add('updated_at')
-            // ->add('categories')
+            //->add('categories')
         ;
+
         $builder->add('categories', EntityType::class, array(
             'class' => Category::class,
             'choice_label' => 'longname',
             'multiple' => true
         ));
-    }
 
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults([
-            'data_class' => Question::class,
-        ]);
+        $builder->add('answers', CollectionType::class, array(
+            'entry_type' => AnswerType::class,
+            'entry_options' => array(
+                'label' => false,
+            )
+        ));
+
     }
 }

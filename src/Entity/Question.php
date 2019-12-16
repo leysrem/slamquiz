@@ -26,11 +26,13 @@ class Question
 
     /**
      * @ORM\Column(type="datetime")
-     */
+     * 
+     */ 
     private $created_at;
 
     /**
      * @ORM\Column(type="datetime")
+     * 
      */
     private $updated_at;
 
@@ -40,7 +42,7 @@ class Question
     private $categories;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Answer", mappedBy="question")
+     * @ORM\OneToMany(targetEntity="App\Entity\Answer", mappedBy="question", cascade={"persist","remove"})
      */
     private $answers;
 
@@ -48,6 +50,9 @@ class Question
     {
         $this->categories = new ArrayCollection();
         $this->answers = new ArrayCollection();
+        $this->setCreatedAt(new \DateTime());
+        $this->setUpdatedAt(new \DateTime());
+        
     }
 
     public function getId(): ?int
@@ -74,8 +79,8 @@ class Question
 
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
-        // $this->created_at = $created_at;
-        $this->setCreatedAt(new \DateTime());
+         $this->created_at = $created_at;
+        
 
         return $this;
     }
@@ -87,8 +92,8 @@ class Question
 
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
-        // $this->updated_at = $updated_at;
-        $this->setUpdatedAt(new \DateTime());
+         $this->updated_at = $updated_at;
+        
 
         return $this;
     }

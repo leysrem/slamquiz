@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20191212105354 extends AbstractMigration
+final class Version20191216102755 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,11 +22,9 @@ final class Version20191212105354 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
 
-        $this->addSql('CREATE SEQUENCE tbl_category_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-        $this->addSql('CREATE SEQUENCE tbl_user_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-        $this->addSql('CREATE TABLE tbl_category (id INT NOT NULL, shortname VARCHAR(50) NOT NULL, longname VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
-        $this->addSql('CREATE TABLE tbl_user (id INT NOT NULL, email VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
-        $this->addSql('CREATE UNIQUE INDEX UNIQ_38B383A1E7927C74 ON tbl_user (email)');
+        $this->addSql('CREATE TABLE tbl_anwser (id INT NOT NULL, question_id INT DEFAULT NULL, text TEXT NOT NULL, correct BOOLEAN DEFAULT \'true\', PRIMARY KEY(id))');
+        $this->addSql('CREATE INDEX IDX_DF101C111E27F6BF ON tbl_anwser (question_id)');
+        $this->addSql('ALTER TABLE tbl_anwser ADD CONSTRAINT FK_DF101C111E27F6BF FOREIGN KEY (question_id) REFERENCES tbl_question (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
     }
 
     public function down(Schema $schema) : void
@@ -35,9 +33,6 @@ final class Version20191212105354 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
 
         $this->addSql('CREATE SCHEMA public');
-        $this->addSql('DROP SEQUENCE tbl_category_id_seq CASCADE');
-        $this->addSql('DROP SEQUENCE tbl_user_id_seq CASCADE');
-        $this->addSql('DROP TABLE tbl_category');
-        $this->addSql('DROP TABLE tbl_user');
+        $this->addSql('DROP TABLE tbl_anwser');
     }
 }

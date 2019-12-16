@@ -3,15 +3,14 @@
 {% block title %}Question index{% endblock %}
 
 {% block body %}
-    <h1>Question index</h1>
+    <h1>{{ 'Question index'|trans }} </h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Text</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
+                 <th>Categories</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -20,10 +19,12 @@
             <tr>
                 <td>{{ question.id }}</td>
                 <td>{{ question.text }}</td>
-                <td>{{ question.createdAt ? question.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ question.updatedAt ? question.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td> {% for categorie in question.categories %} {{ categorie.shortname }}  {% endfor %} </td>
                 <td>
+                    
+
                     <a href="{{ path('question_show', {'id': question.id}) }}">show</a>
+                    
                     <a href="{{ path('question_edit', {'id': question.id}) }}">edit</a>
                 </td>
             </tr>
@@ -34,6 +35,7 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('question_new') }}">Create new</a>
+      <a href="{{ path('question_new', {'nb': 2}) }}"> 2 answers</a>,
+    <a href="{{ path('question_new', {'nb': 3}) }}"> 3 answers</a>
+    or <a href="{{ path('question_new', {'nb': 4}) }}"> 4 answers</a>
 {% endblock %}

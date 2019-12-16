@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AnswerRepository")
  * @ORM\Table(name="tbl_anwser")
@@ -23,7 +24,7 @@ class Answer
     private $text;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="boolean")
      */
     private $correct;
 
@@ -49,12 +50,12 @@ class Answer
         return $this;
     }
 
-    public function getCorrect(): ?string
+    public function getCorrect(): ?bool
     {
         return $this->correct;
     }
 
-    public function setCorrect(string $correct): self
+    public function setCorrect(bool $correct): self
     {
         $this->correct = $correct;
 
