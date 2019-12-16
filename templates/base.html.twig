@@ -22,24 +22,26 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/">Accueil<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Accueil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/category">Category<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/user">Users<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ path('category_index') }}">Category</a>
             </li>
 
-            {% if is_granted("SUPERADMIN") %}
+            {% if is_granted("ROLE_SUPERADMIN") %}
             <li class="nav-item">
-                <a class="nav-link" href="/user">User<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ path('user_index') }}">User</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/answer">Answer<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ path('answer_index') }}">Answer</a>
             </li>
             {% endif %}
-            
+
+            {% if is_granted('ROLE_ADMIN') %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('question_index') }}">Question</a>
+            </li>
+            {% endif %}
             </ul>
 
 

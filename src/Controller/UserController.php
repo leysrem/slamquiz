@@ -26,6 +26,9 @@ class UserController extends AbstractController
      */
     public function index(UserRepository $userRepository): Response
     {
+        $hasAccess = $this->isGranted('ROLE_SUPERADMIN');
+        $this->denyAccessUnlessGranted('ROLE_SUPERADMIN');
+
         return $this->render('user/index.html.twig', [
             'users' => $userRepository->findAll(),
         ]);

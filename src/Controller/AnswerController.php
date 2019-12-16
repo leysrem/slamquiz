@@ -20,9 +20,9 @@ class AnswerController extends AbstractController
      */
     public function index(AnswerRepository $answerRepository): Response
     {
-        $hasAccess = $this->isGranted('ROLE_ADMIN');
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
-
+        $hasAccess = $this->isGranted('ROLE_SUPERADMIN');
+        $this->denyAccessUnlessGranted('ROLE_SUPERADMIN');
+        
         return $this->render('answer/index.html.twig', [
             'answers' => $answerRepository->findAll(),
         ]);
