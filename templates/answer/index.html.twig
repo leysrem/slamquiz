@@ -19,7 +19,10 @@
             <tr>
                 <td>{{ answer.id }}</td>
                 <td>{{ answer.text }}</td>
-                <td>{{ answer.correct }}</td>
+                <td>{% if answer.correct !=1 %}
+                    0
+                {% endif %}
+                {{ answer.correct }}</td>
                 <td>
                     <a class="btn btn-primary" href="{{ path('answer_show', {'id': answer.id}) }}">show</a>
                     <a class="btn btn-primary" href="{{ path('answer_edit', {'id': answer.id}) }}">edit</a>

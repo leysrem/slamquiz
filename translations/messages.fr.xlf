@@ -9,6 +9,78 @@
         <source>Question index</source>
         <target>Question</target>
       </trans-unit>
+      <trans-unit id="HGMzUJ3" resname="show">
+        <source>show</source>
+        <target>afficher</target>
+      </trans-unit>
+      <trans-unit id="JiEhxTc" resname="edit">
+        <source>edit</source>
+        <target>modifier</target>
+      </trans-unit>
+      <trans-unit id="5VzXa2Z" resname="2 answers">
+        <source>2 answers</source>
+        <target>2 réponses</target>
+      </trans-unit>
+      <trans-unit id="l_USnPv" resname="3 answers">
+        <source>3 answers</source>
+        <target>3 réponses</target>
+      </trans-unit>
+      <trans-unit id="pCS30P3" resname="4 answers">
+        <source>4 answers</source>
+        <target>4 réponses</target>
+      </trans-unit>
+      <trans-unit id="E2JqnxS" resname="Create new Question">
+        <source>Create new Question</source>
+        <target>Créer une nouvelle question</target>
+      </trans-unit>
+      <trans-unit id="U0M9PNE" resname="back to list">
+        <source>back to list</source>
+        <target>retour</target>
+      </trans-unit>
+      <trans-unit id="4tClSWj" resname="Delete">
+        <source>Delete</source>
+        <target>Supprimer</target>
+      </trans-unit>
+      <trans-unit id="J7fgn53" resname="no records found&lt;">
+        <source>no records found&lt;</source>
+        <target>Aucun enregistrement</target>
+      </trans-unit>
+      <trans-unit id="FQn1YfJ" resname="Save">
+        <source>Save</source>
+        <target>Enregistrer</target>
+      </trans-unit>
+      <trans-unit id="cZiMTY4" resname="Text">
+        <source>Text</source>
+        <target>texte</target>
+      </trans-unit>
+      <trans-unit id="nibTd3r" resname="Edit Question">
+        <source>Edit Question</source>
+        <target>Modifier question</target>
+      </trans-unit>
+      <trans-unit id="KSwG8AR" resname="Category">
+        <source>Category</source>
+        <target>Catégorie</target>
+      </trans-unit>
+      <trans-unit id="tRLZfny" resname="User">
+        <source>User</source>
+        <target>Utilisateur</target>
+      </trans-unit>
+      <trans-unit id="sqOqYCd" resname="Answer">
+        <source>Answer</source>
+        <target>Réponse</target>
+      </trans-unit>
+      <trans-unit id="KJr.ErB" resname="Question">
+        <source>Question</source>
+        <target>Question</target>
+      </trans-unit>
+      <trans-unit id="OnhpU4i" resname="Home">
+        <source>Home</source>
+        <target>Acceuil</target>
+      </trans-unit>
+      <trans-unit id="wcEAnT8" resname="Update">
+        <source>Update</source>
+        <target>mettre à jour</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

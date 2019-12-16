@@ -9,7 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Text</th>
+                <th> {{ 'Text'|trans }} </th>
                  <th>Categories</th>
                 <th>actions</th>
             </tr>
@@ -23,19 +23,19 @@
                 <td>
                     
 
-                    <a href="{{ path('question_show', {'id': question.id}) }}">show</a>
+                    <a class="btn btn-primary" href="{{ path('question_show', {'id': question.id}) }}">{{ 'show'|trans }}</a>
                     
-                    <a href="{{ path('question_edit', {'id': question.id}) }}">edit</a>
+                    <a class="btn btn-primary" href="{{ path('question_edit', {'id': question.id}) }}">{{ 'edit'|trans }}</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5"> {{ 'no records found<'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-      <a href="{{ path('question_new', {'nb': 2}) }}"> 2 answers</a>,
-    <a href="{{ path('question_new', {'nb': 3}) }}"> 3 answers</a>
-    or <a href="{{ path('question_new', {'nb': 4}) }}"> 4 answers</a>
+      <a class="btn btn-primary" href="{{ path('question_new', {'nb': 2}) }}"> {{ '2 answers'|trans }}</a>
+    <a class="btn btn-primary" href="{{ path('question_new', {'nb': 3}) }}"> {{ '3 answers'|trans }}</a>
+     <a class="btn btn-primary" href="{{ path('question_new', {'nb': 4}) }}"> {{ '4 answers'|trans }}</a>
 {% endblock %}
