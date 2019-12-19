@@ -33,6 +33,9 @@ class QuestionController extends AbstractController
      */
     public function new(Request $request, int $nb): Response
     {
+        $hasAccess = $this->isGranted('ROLE_ADMIN');
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         $question = new Question();
 
         if ($nb<2) {
@@ -65,6 +68,9 @@ class QuestionController extends AbstractController
      */
     public function show(Question $question): Response
     {
+        $hasAccess = $this->isGranted('ROLE_ADMIN');
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         return $this->render('question/show.html.twig', [
             'question' => $question,
         ]);
@@ -75,6 +81,9 @@ class QuestionController extends AbstractController
      */
     public function edit(Request $request, Question $question): Response
     {
+        $hasAccess = $this->isGranted('ROLE_ADMIN');
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         $form = $this->createForm(QuestionType::class, $question);
         $form->handleRequest($request);
 
@@ -95,6 +104,9 @@ class QuestionController extends AbstractController
      */
     public function delete(Request $request, Question $question): Response
     {
+        $hasAccess = $this->isGranted('ROLE_ADMIN');
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        
         if ($this->isCsrfTokenValid('delete'.$question->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($question);

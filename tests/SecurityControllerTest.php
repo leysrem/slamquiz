@@ -45,8 +45,7 @@ class SecurityControllerTest extends WebTestCase
         $crawler = $this->client->request('GET', '/login');
 
         // Asserts that /login path exists and don't return an error
-        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
-       
+        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());   
         
         // Asserts that the phrase "Log in!" is present in the page's title
         $this->assertSelectorTextContains('html title', 'Log in!');
@@ -124,5 +123,8 @@ class SecurityControllerTest extends WebTestCase
         Ecrire ici le code pour vérifier que, si l'utilisateur est connecté avec le rôle ROLE_ADMIN, 
         la requête '/category/new' renvoie 'Create new category' dans la balise 'h1'
         */
-    }            
+        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+    } 
+    
+    
 }
