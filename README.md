@@ -1,4 +1,4 @@
-![Deploy](https://www.herokucdn.com/deploy/button.svg)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ![build](https://api.travis-ci.org/hochdyl/slamquiz.svg?branch=master)
 
