@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\QuizRepository")
+ * @ORM\Table(name="tbl_quiz")
  */
 class Quiz
 {
@@ -24,25 +25,36 @@ class Quiz
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $summary;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Category")
+     * @ORM\Column(type="integer")
+     */
+    private $number_of_questions;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $active;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $created_at;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updated_at;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Category", inversedBy="quizzes")
      */
     private $categories;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Question", mappedBy="no")
-     */
-    private $questions;
-
-    public function __construct()
-    {
-        $this->categories = new ArrayCollection();
-        $this->questions = new ArrayCollection();
-    }
+    
 
     public function getId(): ?int
     {
@@ -66,11 +78,72 @@ class Quiz
         return $this->summary;
     }
 
-    public function setSummary(string $summary): self
+    public function setSummary(?string $summary): self
     {
         $this->summary = $summary;
 
         return $this;
+    }
+
+    public function getNumberOfQuestions(): ?int
+    {
+        return $this->number_of_questions;
+    }
+
+    public function setNumberOfQuestions(int $number_of_questions): self
+    {
+        $this->number_of_questions = $number_of_questions;
+
+        return $this;
+    }
+
+    public function getActive(): ?bool
+    {
+        return $this->active;
+    }
+
+    public function setActive(bool $active): self
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $created_at): self
+    {
+        $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function __construct()
+    {
+        $this->setCreatedAt(new \DateTime());
+        $this->setUpdatedAt(new \DateTime());
+        $this->relation = new ArrayCollection();
+        $this->categories = new ArrayCollection();  
+    }
+
+    public function __toString()
+    {
+        return $this->title .  ' | ';
     }
 
     /**
@@ -99,34 +172,4 @@ class Quiz
         return $this;
     }
 
-    /**
-     * @return Collection|Question[]
-     */
-    public function getQuestions(): Collection
-    {
-        return $this->questions;
-    }
-
-    public function addQuestion(Question $question): self
-    {
-        if (!$this->questions->contains($question)) {
-            $this->questions[] = $question;
-            $question->setNo($this);
-        }
-
-        return $this;
-    }
-
-    public function removeQuestion(Question $question): self
-    {
-        if ($this->questions->contains($question)) {
-            $this->questions->removeElement($question);
-            // set the owning side to null (unless already changed)
-            if ($question->getNo() === $this) {
-                $question->setNo(null);
-            }
-        }
-
-        return $this;
-    }
 }

@@ -47,4 +47,10 @@ class QuizRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findAll()
+    {
+        $builder = $this->createQueryBuilder('a');
+        $builder->orderBy('a.title', 'ASC');
+        return $builder->getQuery()->getResult();
+    }
 }
