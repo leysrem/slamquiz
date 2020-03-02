@@ -2,12 +2,11 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\QuizRepository")
+ * @ORM\Table(name="tbl_quiz")
  */
 class Quiz
 {
@@ -24,25 +23,29 @@ class Quiz
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $summary;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Category")
+     * @ORM\Column(type="integer")
      */
-    private $categories;
+    private $number_of_questions;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Question", mappedBy="no")
+     * @ORM\Column(type="boolean")
      */
-    private $questions;
+    private $active;
 
-    public function __construct()
-    {
-        $this->categories = new ArrayCollection();
-        $this->questions = new ArrayCollection();
-    }
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $created_at;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updated_at;
 
     public function getId(): ?int
     {
@@ -66,67 +69,64 @@ class Quiz
         return $this->summary;
     }
 
-    public function setSummary(string $summary): self
+    public function setSummary(?string $summary): self
     {
         $this->summary = $summary;
 
         return $this;
     }
 
-    /**
-     * @return Collection|Category[]
-     */
-    public function getCategories(): Collection
+    public function getNumberOfQuestions(): ?int
     {
-        return $this->categories;
+        return $this->number_of_questions;
     }
 
-    public function addCategory(Category $category): self
+    public function setNumberOfQuestions(int $number_of_questions): self
     {
-        if (!$this->categories->contains($category)) {
-            $this->categories[] = $category;
-        }
+        $this->number_of_questions = $number_of_questions;
 
         return $this;
     }
 
-    public function removeCategory(Category $category): self
+    public function getActive(): ?bool
     {
-        if ($this->categories->contains($category)) {
-            $this->categories->removeElement($category);
-        }
+        return $this->active;
+    }
+
+    public function setActive(bool $active): self
+    {
+        $this->active = $active;
 
         return $this;
     }
 
-    /**
-     * @return Collection|Question[]
-     */
-    public function getQuestions(): Collection
+    public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->questions;
+        return $this->created_at;
     }
 
-    public function addQuestion(Question $question): self
+    public function setCreatedAt(\DateTimeInterface $created_at): self
     {
-        if (!$this->questions->contains($question)) {
-            $this->questions[] = $question;
-            $question->setNo($this);
-        }
+        $this->created_at = $created_at;
 
         return $this;
     }
 
-    public function removeQuestion(Question $question): self
+    public function getUpdatedAt(): ?\DateTimeInterface
     {
-        if ($this->questions->contains($question)) {
-            $this->questions->removeElement($question);
-            // set the owning side to null (unless already changed)
-            if ($question->getNo() === $this) {
-                $question->setNo(null);
-            }
-        }
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
 
         return $this;
+    }
+
+    public function __construct()
+    {
+        $this->setCreatedAt(new \DateTime());
+        $this->setUpdatedAt(new \DateTime());  
     }
 }

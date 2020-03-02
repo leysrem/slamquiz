@@ -46,10 +46,7 @@ class Question
      */
     private $answers;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Quiz", inversedBy="questions")
-     */
-    private $no;
+    
 
     public function __construct()
     {
@@ -160,15 +157,4 @@ class Question
         return $this;
     }
 
-    public function getNo(): ?Quiz
-    {
-        return $this->no;
-    }
-
-    public function setNo(?Quiz $no): self
-    {
-        $this->no = $no;
-
-        return $this;
-    }
 }
