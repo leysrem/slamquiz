@@ -12,6 +12,7 @@
                 <th>Title</th>
                 <th>Summary</th>
                 <th>Number_of_questions</th>
+                <th>categories</th>
                 <th>Active</th>
 
                 <th>actions</th>
@@ -24,6 +25,7 @@
                 <td>{{ quiz.title }}</td>
                 <td>{{ quiz.summary }}</td>
                 <td>{{ quiz.numberOfQuestions }}</td>
+                <td> {% for category in quiz.categories %} {{ category }} {% endfor %} </td>
                 <td>{{ quiz.active ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ path('quiz_show', {'id': quiz.id}) }}">show</a>
