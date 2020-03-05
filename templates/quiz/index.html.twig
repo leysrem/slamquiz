@@ -30,6 +30,7 @@
                 <td>
                     <a href="{{ path('quiz_show', {'id': quiz.id}) }}">show</a>
                     <a href="{{ path('quiz_edit', {'id': quiz.id}) }}">edit</a>
+                    <a href="{{ path('workout_new', {'id': quiz.id}) }}">démarrer</a>
                 </td>
             </tr>
         {% else %}
